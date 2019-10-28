@@ -56,7 +56,7 @@ module.exports.setadmin = {
         cnf.adminRole = msg.roleMentions[0];
         await config.setServer(serverId, 'oxyde', cnf);
         console.log(msg);
-        msg.channel.createMessage(':white_check_mark: `Prefix set successfully!`');
+        msg.channel.createMessage(':white_check_mark: `Admin role set successfully!`');
     }
 }
 
@@ -70,6 +70,6 @@ module.exports.setadminid = {
         let cnf = await config.getServer(serverId, 'oxyde')
         cnf.adminRole = args[0];
         await config.setServer(serverId, 'oxyde', cnf);
-        msg.channel.createMessage(':white_check_mark: `Prefix set successfully!`');
+        msg.channel.createMessage(':white_check_mark: `Admin role set successfully!`');
     }
 }
