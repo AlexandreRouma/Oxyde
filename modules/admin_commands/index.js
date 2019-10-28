@@ -52,10 +52,24 @@ module.exports.setadmin = {
     minRoleMentions: 1,
     maxRoleMentions: 1,
     base: async (Eris, bot, serverId, msg, text, args) => {
-        //let cnf = await config.getServer(serverId, 'oxyde')
-        //cnf.adminRole = msg.roleMentions[0].id;
-        //await config.setServer(serverId, 'oxyde', cnf);
-        console.log(msg.roleMentions[0].id);
+        let cnf = await config.getServer(serverId, 'oxyde')
+        cnf.adminRole = msg.roleMentions[0];
+        await config.setServer(serverId, 'oxyde', cnf);
+        console.log(msg);
+        msg.channel.createMessage(':white_check_mark: `Prefix set successfully!`');
+    }
+}
+
+module.exports.setadminid = {
+    description: 'Set the admin role by ID',
+    usage: 'setadminid [role_id]',
+    adminOnly: true,
+    minArgs: 1,
+    maxArgs: 1,
+    base: async (Eris, bot, serverId, msg, text, args) => {
+        let cnf = await config.getServer(serverId, 'oxyde')
+        cnf.adminRole = args[0];
+        await config.setServer(serverId, 'oxyde', cnf);
         msg.channel.createMessage(':white_check_mark: `Prefix set successfully!`');
     }
 }
