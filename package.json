@@ -1,0 +1,22 @@
+{
+  "name": "oxyde",
+  "version": "0.1.0",
+  "description": "Cross-platform discord bot framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryzerth",
+  "license": "MIT",
+  "dependencies": {
+    "aesthetics": "^2.1.0",
+    "console-control-strings": "^1.1.0",
+    "eris": "^0.11.0",
+    "math-expression-evaluator": "^1.2.17",
+    "moment": "^2.24.0",
+    "ping": "^0.2.2",
+    "sequelize": "^5.21.1",
+    "sqlite3": "^4.1.0",
+    "table": "^5.4.6"
+  }
+}
