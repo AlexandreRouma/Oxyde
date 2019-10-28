@@ -16,7 +16,7 @@ module.exports._init_ = (Eris, bot) => {
 module.exports.setstatus = {
     description: 'Set the bot\'s prefix',
     usage: 'setprefix [prefix]',
-    adminOnly: true,
+    ownerOnly: true,
     minArgs: 1,
     base: async (Eris, bot, serverId, msg, text, args) => {
         bot.editStatus('online', {name: text});
