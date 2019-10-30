@@ -127,9 +127,8 @@ module.exports.avatar = {
 }
 
 module.exports.serverinfo = {
-    description: 'Get ifno about the server',
+    description: 'Get info about the server',
     usage: 'serverinfo',
-    minArgs: 0,
     maxArgs: 0,
     base: async (Eris, bot, serverId, msg, text, args) => {
         let cnf = await config.getServer(serverId, 'oxyde');
