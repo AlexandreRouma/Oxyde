@@ -4,6 +4,7 @@ const logger = require('./logger');
 module.exports.modCache = {};
 module.exports.commands = {};
 module.exports.cmdNameList = [];
+module.exports.baseCommands = {};
 
 module.exports.loadModules = (path) => {
     if (path.endsWith('/') || path.endsWith('\\')) {
@@ -90,6 +91,7 @@ module.exports.loadModules = (path) => {
                     continue;
                 }
             }
+            module.exports.baseCommands[cmd.name] = cmd;
             module.exports.cmdNameList.push(cmd.name);
             module.exports.commands[cmd.name] = cmd;
             if (cmd.alias) {

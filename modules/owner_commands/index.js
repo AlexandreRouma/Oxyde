@@ -71,7 +71,7 @@ module.exports.module = {
                 embed.setColor(cnf.color);
                 embed.addField('Version', mod._info_.version, true);
                 embed.addField('Author', mod._info_.author, true);
-                let commands = Object.values(modMgr.commands).filter(c => c.module == name);
+                let commands = Object.values(modMgr.baseCommands).filter(c => c.module == name);
                 let commandsStr = '';
                 for (let i = 0; i < commands.length; i++) {
                     commandsStr += `, ${commands[i].name}`;
