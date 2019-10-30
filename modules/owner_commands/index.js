@@ -85,3 +85,19 @@ module.exports.module = {
         }
     }
 }
+
+module.exports.version = {
+    description: 'Get the bot\'s version',
+    usage: 'version',
+    maxArgs: 0,
+    base: async (Eris, bot, serverId, msg, text, args) => {
+        let cnf = await config.getServer(serverId, 'oxyde')
+        let embed = new embedBuilder.Embed();
+        embed.setColor(cnf.color);
+        embed.setTitle('Version');
+        embed.setDescription(`This bot is currently running Oxyde version \`${modMgr.info.version}\``);
+        msg.channel.createMessage({
+            embed: embed.get()
+        });
+    }
+}

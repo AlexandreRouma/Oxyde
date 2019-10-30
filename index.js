@@ -6,7 +6,6 @@ const modMgr = require('./utils/modMgr');
 const help = require('./utils/help');
 const cmdListGen = require('./utils/cmdListGen');
 
-const info = JSON.parse(fs.readFileSync('package.json').toString());
 const OXYDE_LOCAL_DEFAULT = {
     token: 'INSERT_HERE',
     ownerId: 'INSERT_HERE',
@@ -29,7 +28,7 @@ async function main() {
     logger.setColor('red');
     console.log(fs.readFileSync('splash.txt').toString());
     logger.setColor('yellow');
-    console.log(`\nVersion ${info.version}`)
+    console.log(`\nVersion ${modMgr.info.version}`)
     logger.setColor('reset');
 
     await config.init('config/config.json', 'config/config.sqlite');

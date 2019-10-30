@@ -5,6 +5,7 @@ module.exports.modCache = {};
 module.exports.commands = {};
 module.exports.cmdNameList = [];
 module.exports.baseCommands = {};
+module.exports.info = JSON.parse(fs.readFileSync('package.json').toString());
 
 module.exports.loadModules = (path) => {
     if (path.endsWith('/') || path.endsWith('\\')) {
