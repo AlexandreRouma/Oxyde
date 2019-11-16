@@ -2,6 +2,7 @@ const help = require('../../utils/help');
 const embedBuilder = require('../../utils/embedBuilder');
 const config = require('../../utils/config');
 const modMgr = require('../../utils/modMgr');
+const cmdListGen = require('../../utils/cmdListGen');
 
 module.exports._info_ = {
     description: 'Owner commands for Oxyde',
@@ -9,7 +10,7 @@ module.exports._info_ = {
     author: 'Ryzerth'
 }
 
-module.exports._init_ = (Eris, bot) => {
+module.exports._init_ = (bot) => {
     return true;
 }
 
@@ -99,5 +100,15 @@ module.exports.version = {
         msg.channel.createMessage({
             embed: embed.get()
         });
+    }
+}
+
+module.exports.commandlist = {
+    description: 'Get the list of all the bot\'s commands',
+    usage: 'commandlist',
+    maxArgs: 0,
+    alias: 'cmdlist',
+    base: async (Eris, bot, serverId, msg, text, args) => {
+        msg.channel.createMessage(cmdListGen.cmdListLink);
     }
 }

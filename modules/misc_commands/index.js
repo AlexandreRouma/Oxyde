@@ -12,7 +12,7 @@ module.exports._info_ = {
     author: 'Ryzerth'
 }
 
-module.exports._init_ = (Eris, bot) => {
+module.exports._init_ = (bot) => {
     return true;
 }
 

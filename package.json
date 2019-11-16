@@ -10,13 +10,17 @@
   "license": "MIT",
   "dependencies": {
     "aesthetics": "^2.1.0",
+    "aprs-parser": "^1.0.4",
     "console-control-strings": "^1.1.0",
     "eris": "^0.11.0",
     "math-expression-evaluator": "^1.2.17",
     "moment": "^2.24.0",
+    "node-opus": "^0.3.3",
     "ping": "^0.2.2",
     "sequelize": "^5.21.1",
     "sqlite3": "^4.1.0",
-    "table": "^5.4.6"
+    "table": "^5.4.6",
+    "youtube-search": "^1.1.4",
+    "ytdl-core": "^1.0.0"
   }
 }

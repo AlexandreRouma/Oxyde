@@ -7,7 +7,7 @@ module.exports.cmdNameList = [];
 module.exports.baseCommands = {};
 module.exports.info = JSON.parse(fs.readFileSync('package.json').toString());
 
-module.exports.loadModules = (path) => {
+module.exports.loadModules = (path, bot) => {
     if (path.endsWith('/') || path.endsWith('\\')) {
         path = path.substr(0, path.length - 1);
     }
@@ -32,7 +32,7 @@ module.exports.loadModules = (path) => {
             continue;
         }
         logger.ok();
-        if (!mod._init_()) {
+        if (!mod._init_(bot)) {
             logger.panic(`Module '${modPaths[i]}' failed to initialize!`, false);
             continue;
         }

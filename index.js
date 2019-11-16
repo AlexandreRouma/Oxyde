@@ -11,7 +11,8 @@ const OXYDE_LOCAL_DEFAULT = {
     ownerId: 'INSERT_HERE',
     modules: './modules/',
     showInvalidCommand: true,
-    status: 'Oxyde Bot'
+    status: 'Oxyde Bot',
+    cmdListRenewDelay: '86400'
 }
 const OXYDE_SERVER_DEFAULT = {
     adminRole: '',
@@ -40,13 +41,14 @@ async function main() {
 
     bot.on("ready", async () => { // When the bot is ready
         logger.ok();
-        modMgr.loadModules(cnf.modules);
+        modMgr.loadModules(cnf.modules, bot);
+        await cmdListGen.renewLink();
+        setInterval(cmdListGen.renewLink, cnf.cmdListRenewDelay * 1000);
         logger.log('Setting status');
         bot.editStatus('online', {name: cnf.status});
         logger.ok();
         initialized = true;
         logger.logInfo(`Ready! Logged in as '${bot.user.username}#${bot.user.discriminator}'`);
-        console.log(cmdListGen.genTable());
     });
     
     bot.on("messageCreate", commandHandler);
