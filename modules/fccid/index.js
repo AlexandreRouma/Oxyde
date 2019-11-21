@@ -82,7 +82,7 @@ module.exports.fccid = {
     minArgs: 1,
     maxArgs: 1,
     base: async (Eris, bot, serverId, msg, text, args) => {
-        let info = await queryId(args[0]);
+        let info = await queryId(args[0].toUpperCase());
         if (info.brand == '') {
             msg.channel.createMessage(`:no_entry: \`Unknown ID\``);
             return;
@@ -94,7 +94,7 @@ module.exports.fccid = {
         for (let i = 0; i < info.freqs.length; i++) {
             embed.addField(info.freqs[i].range, `${info.freqs[i].power}, ${info.freqs[i].part}`, true);
         }
-        embed.setUrl(`https://fccid.io/${args[1]}`);
+        embed.setUrl(`https://fccid.io/${args[0].toUpperCase()}`);
         msg.channel.createMessage({
             embed: embed.get()
         });
