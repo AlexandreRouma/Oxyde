@@ -61,6 +61,9 @@ async function commandHandler(msg) {
     if (msg.author.id == bot.user.id) {
         return;
     }
+    if (msg.channel.type != 0) {
+        return;
+    }
     await config.initServer(msg.channel.guild.id, 'oxyde', OXYDE_SERVER_DEFAULT);
     let cnf = await config.getServer(msg.channel.guild.id, 'oxyde');
     let localCnf = await config.getLocal('oxyde');

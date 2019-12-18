@@ -13,6 +13,9 @@ module.exports.loadModules = (path, bot) => {
     }
     let modPaths = fs.readdirSync(path);
     for (let i = 0; i < modPaths.length; i++) {
+        if (modPaths[i].startsWith('__')) {
+            continue;
+        }
         logger.log(`Loading ${modPaths[i]}`);
         let mod = require(`../${path}/${modPaths[i]}`);
         let cmdList = Object.keys(mod).filter(e => !e.startsWith('_'));

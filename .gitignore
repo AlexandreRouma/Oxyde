@@ -2,3 +2,5 @@
 /config/config.json
 /config/config.sqlite
 /modules/aprs_bridge
+/modules/validator
+/modules/__*
