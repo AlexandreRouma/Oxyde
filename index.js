@@ -40,6 +40,9 @@ async function main() {
     bot = new Eris(cnf.token);
 
     bot.on("ready", async () => { // When the bot is ready
+        if (initialized) {
+            return;
+        }
         logger.ok();
         modMgr.loadModules(cnf.modules, bot);
         await cmdListGen.renewLink();
